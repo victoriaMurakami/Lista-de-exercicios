@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composição de Liga Metálica</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #3861da;
+            color: #030258; 
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Composição de Liga Metálica</h1>
+
+<label for="porcentagemMetal">Porcentagem de Metal:</label>
+<input type="number" id="porcentagemMetal" placeholder="Exemplo: 60" min="0" max="100"><br><br>
+
+<label for="porcentagemAmetal">Porcentagem de Ametal:</label>
+<input type="number" id="porcentagemAmetal" placeholder="Exemplo: 40" min="0" max="100"><br><br>
+
+<button onclick="calcularComposicao()">Calcular Composição</button>
+<p id="resultado"></p>
+    </div>
+<script>
+    
+    function calcularComposicao() {
+        let metal = Number(document.getElementById('porcentagemMetal').value);
+        let ametal = Number(document.getElementById('porcentagemAmetal').value);
+
+        if (metal + ametal !== 100) {
+            document.getElementById('resultado').innerText = 'A soma das porcentagens deve ser 100.';
+            return;
+        }
+        if (metal > 50) {
+            document.getElementById('resultado').innerText = 'A liga é predominantemente metálica.';
+        } else if (ametal > 50) {
+            document.getElementById('resultado').innerText = 'A liga é predominantemente ametálica.';
+        } else {
+            document.getElementById('resultado').innerText = 'A liga é balanceada (50% metal e 50% ametal).';
+        }
+    }
+</script>
+
+</body>
+</html>

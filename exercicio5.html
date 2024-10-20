@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular o custo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;}
+            h3{
+                color: #06048c;
+                text-align: center;
+            }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #94afef;
+            border-radius: 5px;
+            background-color: #a3b8ea;
+        }
+        button {
+            background-color: #3861da;
+            color: #030258;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculando custo</h1>
+        
+        <h3>Entre com a largura</h3>
+        <input type="number" id="largura" placeholder="Digite a largura">
+
+        <h3>Entre com o comprimento</h3>
+        <input type="number" id="comprimento" placeholder="Digite o comprimento">
+
+        <button onclick="calcularmetrosquadrados()">Calcular</button>
+    </div>
+
+    <script>
+        function calcularmetrosquadrados() {
+            let larg = parseFloat(document.getElementById("largura").value);
+            let compri = parseFloat(document.getElementById("comprimento").value);
+            let calc = larg * compri;
+            let preco = calc * 36;
+            alert(`O preço total é: R$ ${preco.toFixed(2)}`);
+        }
+    </script>
+</body>
+</html>

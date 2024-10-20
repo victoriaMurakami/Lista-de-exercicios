@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendo quilometragem</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #94afef;
+            border-radius: 5px;
+            background-color: #a3b8ea;
+        }
+        button {
+            background-color: #3861da;
+            color: #030258;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+        #resultado {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 4</h1>
+        
+        <label for="quilometragem">Quilometragem percorrida (em km):</label>
+        <input type="number" id="quilometragem" placeholder="Digite a quilometragem" required>
+        
+        <label for="valorCombustivel">Valor do combustível (por litro):</label>
+        <input type="number" id="valorCombustivel" placeholder="Digite o valor do combustível" required>
+        
+        <button onclick="calcular()">Calcular Gasto</button>
+        
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularGasto(quilometragemPercorrida, valorCombustivel) {
+            const eficiencia = 8;
+            const litros_usados = quilometragemPercorrida / eficiencia; 
+            const gastoTotal = litros_usados * valorCombustivel; 
+
+            return gastoTotal;
+        }
+
+        function lerDados() {
+            const quilometragemPercorrida = parseFloat(document.getElementById("quilometragem").value);
+            const valorCombustivel = parseFloat(document.getElementById("valorCombustivel").value);
+            return { quilometragemPercorrida, valorCombustivel };
+        }
+
+        function exibirResultado(gasto) {
+            document.getElementById("resultado").innerText = `O gasto total com combustível é: R$ ${gasto.toFixed(2)}`;
+        }
+
+        function calcular() {
+            const { quilometragemPercorrida, valorCombustivel } = lerDados();
+            const gasto = calcularGasto(quilometragemPercorrida, valorCombustivel);
+            exibirResultado(gasto);
+        }
+    </script>
+</body>
+</html>

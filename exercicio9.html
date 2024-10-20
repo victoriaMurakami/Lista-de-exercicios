@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir e Manipular Valores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #3861da;
+            color: #030258; 
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Inserir e Manipular Valores</h1>
+    <label for="valor">Insira um valor:</label>
+    <input type="number" id="valor" placeholder="Exemplo: 5">
+    <button onclick="adicionarValor()">Adicionar Valor</button>
+    <p id="mensagem"></p>
+    <button onclick="mostrarValores()">Mostrar Todos os Valores</button>
+    <button onclick="mostrarMaiorValor()">Mostrar Maior Valor</button>
+    <button onclick="mostrarMenorValor()">Mostrar Menor Valor</button>
+    <p id="resultado"></p>
+    </div>
+
+    <script>
+        let valores = [];
+    
+        function adicionarValor() {
+            let valor = document.getElementById('valor').value;
+    
+            if (valor !== "") {
+                valores.push(Number(valor)); 
+                document.getElementById('mensagem').innerText = `Valor ${valor} adicionado.`;
+                document.getElementById('valor').value = ""; 
+            } else {
+                document.getElementById('mensagem').innerText = 'Por favor, insira um valor.';
+            }
+        }
+        function mostrarValores() {
+            if (valores.length > 0) {
+                document.getElementById('resultado').innerText = `Valores inseridos: ${valores.join(', ')}`;
+            } else {
+                document.getElementById('resultado').innerText = 'Nenhum valor foi inserido.';
+            }
+        }
+        function mostrarMaiorValor() {
+            if (valores.length > 0) {
+                let maiorValor = Math.max(...valores); 
+                document.getElementById('resultado').innerText = `Maior valor: ${maiorValor}`;
+            } else {
+                document.getElementById('resultado').innerText = 'Nenhum valor foi inserido.';
+            }
+        }
+        function mostrarMenorValor() {
+            if (valores.length > 0) {
+                let menorValor = Math.min(...valores); 
+                document.getElementById('resultado').innerText = `Menor valor: ${menorValor}`;
+            } else {
+                document.getElementById('resultado').innerText = 'Nenhum valor foi inserido.';
+            }
+        }
+    </script>
+    </body>
+    </html>

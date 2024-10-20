@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de Temperatura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4; 
+            color: #040238;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #94afef;
+            border-radius: 5px;
+            background-color: #a3b8ea;
+        }
+        button {
+            background-color: #3861da;
+            color: #030258;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversão de Temperatura</h1>
+        <input type="number" id="temperatura" placeholder="Digite a temperatura">
+        <button onclick="fahrenheit_Celcius()">Fahrenheit para Celsius</button>
+        <button onclick="celcio_Fahrenheit()">Celsius para Fahrenheit</button>
+    </div>
+
+    <script>
+        let Celsius = 0;
+        let Fahrenheit = 0;
+
+        function celcio_Fahrenheit() {
+            let t = document.getElementById("temperatura").value;
+            Fahrenheit = (t * 1.8) + 32;
+            alert(f);
+        }
+
+        function fahrenheit_Celcius() {
+            let t = document.getElementById("temperatura").value;
+            Celsius = (t - 32) / 1.8;
+            alert(c);
+        }
+    </script>
+</body>
+</html>

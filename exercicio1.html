@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendo números inteiros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #94afef;
+            border-radius: 5px;
+            background-color: #a3b8ea;
+            color: #000635;
+        }
+        button {
+            background-color: #3861da; 
+            color: #030258;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Exercicio 01</h1>
+        <input type="number" id="numero" placeholder="Digite um número">
+        <button id="btn" onclick="Guardar()">Guardar</button>
+        <button onclick="Somar()">Somar</button>
+        <button onclick="Media()">Calcular média</button>
+        <button onclick="Pares()">Pares</button>
+        <button onclick="Impares()">Impares</button>
+    </div>
+
+    <script> 
+        let soma = 0;
+        let conta = 0;
+        let media = 0;
+        let pares = [];
+        let impares = [];
+        let numeros = [];
+
+        function Guardar() {
+            let num = document.getElementById("numero").value;
+            numeros.push(Number(num)); 
+            document.getElementById("numero").value = ''; 
+            if(num % 2 == 0){
+                pares.push(num);
+            } else {
+                impares.push(num);
+            }
+        }
+
+        function Pares() {
+            let qntd = pares.length;
+            alert(qntd);
+        }
+
+        function Impares() {
+            let qntd = impares.length;
+            alert(qntd);
+        }
+
+        function Somar() {
+            soma = numeros.reduce((acc, numero) => acc + numero, 0);
+            alert(soma); 
+        }
+
+        function Media() {
+            conta = numeros.length;
+            media = conta > 0 ? soma / conta : 0; // Evita divisão por zero
+            alert(media);
+        }
+    </script>
+</body>
+</html>

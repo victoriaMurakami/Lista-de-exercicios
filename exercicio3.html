@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendo um vetor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #94afef;
+            border-radius: 5px;
+            background-color: #a3b8ea;
+        }
+        button {
+            background-color: #3861da;
+            color: #030258;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Digite dez números e guarde</h1>
+        <input type="number" id="numero" placeholder="Digite um número">
+        <button onclick="Guardar()">Guardar</button>
+        <button onclick="NumerosMaiores()">Números maiores que a média</button>
+    </div>
+
+    <script>
+        let numeros = [];
+        let num = 0;
+        let qntd = 0;
+        let media = 0;
+        let total = 0;
+
+        function Guardar() {
+            num = parseInt(document.getElementById("numero").value);
+            numeros.push(numero);
+            document.getElementById("numero").value = "";
+        }
+
+        function NumerosMaiores() {
+            total = 0;
+            let nummaior = [];
+            numeros.forEach(function (num) {
+                total += num; 
+            });
+
+            qntd = numeros.length;
+            media = total / qntd;
+            numeros.forEach(function(num) {
+                if(num > media){
+                nummaior.push(num);
+                }
+            });
+            for (let i = 0; i < nummaior.length; i++) {
+                alert(nummaior[i]);
+            }
+        }
+    </script>
+</body>
+</html>

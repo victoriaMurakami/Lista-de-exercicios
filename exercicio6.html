@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de força</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;}
+            h2{
+                color: #06048c;
+                text-align: center;
+            }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #94afef;
+            border-radius: 5px;
+            background-color: #a3b8ea;
+        }
+        button {
+            background-color: #3861da;
+            color: #030258;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Calculadora de Força</h1>
+
+    <h2>Situação 1: Força Resultante</h2>
+    <p>Massa (kg): <input type="number" id="massa"></p>
+    <p>Aceleração 1 (m/s²): <input type="number" id="aceleracao1"></p>
+    <p>Aceleração 2 (m/s²): <input type="number" id="aceleracao2"></p>
+    <button onclick="calcularForcaResultante()">Calcular Força Resultante</button>
+    <p id="resultado1"></p>
+
+    <h2>Situação 2: Força de Ação e Reação</h2>
+    <p>Massa do objeto 1 (kg): <input type="number" id="massa1"></p>
+    <p>Aceleração do objeto 1 (m/s²): <input type="number" id="aceleracaoObj1"></p>
+    <p>Massa do objeto 2 (kg): <input type="number" id="massa2"></p>
+    <p>Aceleração do objeto 2 (m/s²): <input type="number" id="aceleracaoObj2"></p>
+    <button onclick="calcularForcaAcaoReacao()">Calcular Força de Ação/Reação</button>
+    <p id="resultado2"></p>
+    </div>
+
+    <script>
+        function calcularForcaResultante() {
+            var massa = document.getElementById('massa').value;
+            var a1 = document.getElementById('aceleracao1').value;
+            var a2 = document.getElementById('aceleracao2').value;
+            
+            var aResultante = a1 - a2;  
+            var forcaResultante = massa * aResultante;  
+
+            document.getElementById('resultado1').innerHTML = "Força resultante: " + forcaResultante + " N";
+        }
+        function calcularForcaAcaoReacao() {
+            var massa1 = document.getElementById('massa1').value;
+            var aceleracao1 = document.getElementById('aceleracaoObj1').value;
+            var massa2 = document.getElementById('massa2').value;
+            var aceleracao2 = document.getElementById('aceleracaoObj2').value;
+            
+            var forca1 = massa1 * aceleracao1;  
+            var forca2 = massa2 * aceleracao2; 
+
+            document.getElementById('resultado2').innerHTML = "Força de ação: " + forca1 + " N, Força de reação: " + forca2 + " N";
+        }
+    </script>
+
+</body>
+</html>

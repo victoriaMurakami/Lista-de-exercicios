@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Exponencial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            background-color: #3861da;
+            color: #030258; 
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcular Exponencial</h1>
+
+<label for="valorX">Insira o valor de x:</label>
+<input type="number" id="valorX" step="any" placeholder="Exemplo: 2.5">
+<button onclick="calcularExponencial()">Calcular e^x</button>
+
+<p id="resultado"></p>
+    </div>
+<script>
+    function calcularExponencial() {
+        let x = document.getElementById('valorX').value;
+        if (x !== "") {
+            let resultado = Math.exp(x); 
+            document.getElementById('resultado').innerText = `O valor de e^${x} é ${resultado.toFixed(4)}`;
+        } else {
+            document.getElementById('resultado').innerText = 'Por favor, insira um valor para x.';
+        }
+    }
+</script>
+</body>
+</html>

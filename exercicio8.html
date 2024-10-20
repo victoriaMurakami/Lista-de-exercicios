@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ligações Químicas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #92bce4;
+            color: #040238;}
+            h2{
+                color: #06048c;
+                text-align: center;
+            }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #06048c;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #94afef;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #94afef;
+            border-radius: 5px;
+            background-color: #a3b8ea;
+        }
+        button {
+            background-color: #3861da;
+            color: #030258;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #323597;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Cálculo de Ligações Químicas</h1>  
+    <h2>Ligações Iônicas</h2>
+    <label for="metalPerda">Metal: Elétrons perdidos</label>
+    <input type="number" id="metalPerda" placeholder="Exemplo: 1"><br>
+    
+    <label for="ametalGanho">Ametal: Elétrons ganhos</label>
+    <input type="number" id="ametalGanho" placeholder="Exemplo: 1"><br>
+    
+    <button onclick="calcularIonica()">Calcular Ligação Iônica</button>
+    
+    <p id="resultadoIonica"></p>
+    
+    <h2>Ligações Covalentes</h2>
+    <label for="ligacoesAtom1">Átomo 1: Ligações possíveis</label>
+    <input type="number" id="ligacoesAtom1" placeholder="Exemplo: 2"><br>
+    
+    <label for="ligacoesAtom2">Átomo 2: Ligações possíveis</label>
+    <input type="number" id="ligacoesAtom2" placeholder="Exemplo: 1"><br>
+    
+    <button onclick="calcularCovalente()">Calcular Ligação Covalente</button>
+    
+    <p id="resultadoCovalente"></p>
+    </div>
+    <script>
+        function calcularIonica() {
+            let metalPerda = document.getElementById('metalPerda').value;
+            let ametalGanho = document.getElementById('ametalGanho').value;
+    
+            if (metalPerda && ametalGanho) {
+                let formula = `Fórmula iônica: M${metalPerda}A${ametalGanho}`;
+                document.getElementById('resultadoIonica').innerText = formula;
+            } else {
+                document.getElementById('resultadoIonica').innerText = 'Por favor, insira os valores.';
+            }
+        }
+    
+        function calcularCovalente() {
+            let ligacoesAtom1 = document.getElementById('ligacoesAtom1').value;
+            let ligacoesAtom2 = document.getElementById('ligacoesAtom2').value;
+    
+            if (ligacoesAtom1 && ligacoesAtom2) {
+                let formula = `Fórmula molecular: A₁${ligacoesAtom1}A₂${ligacoesAtom2}`;
+                document.getElementById('resultadoCovalente').innerText = formula;
+            } else {
+                document.getElementById('resultadoCovalente').innerText = 'Por favor, insira os valores.';
+            }
+        }
+    </script>
+    </body>
+    </html>
